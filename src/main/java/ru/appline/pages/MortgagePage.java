@@ -91,11 +91,11 @@ public class MortgagePage extends BasePage {
     public String getFillField(String fieldName) {
         switch (fieldName) {
             case "Стоимость недвижимости":
-                return housePriceInput.getAttribute("value");
+                return housePriceInput.getAttribute("value").replaceAll("[₽ ]", "").trim();
             case "Первоначальный взнос":
-                return initialPaymentInput.getAttribute("value");
+                return initialPaymentInput.getAttribute("value").replaceAll("[₽ ]", "").trim();
             case "Срок кредита":
-                return loanPeriodInput.getAttribute("value");
+                return loanPeriodInput.getAttribute("value").replaceAll("[₽ ]", "").trim();
         }
         throw new AssertionError("Поле не объявлено на странице");
     }
@@ -103,11 +103,11 @@ public class MortgagePage extends BasePage {
     public String getResult(String resultName) {
         switch (resultName) {
             case "Ежемесячный платеж":
-                return monthlyPaymentResult.getText().replaceAll("₽", "").trim();
+                return monthlyPaymentResult.getText().replaceAll("[₽ ]", "").trim();
             case "Сумма кредита":
-                return totalLoanSumResult.getText().replaceAll("₽", "").trim();
+                return totalLoanSumResult.getText().replaceAll("[₽ ]", "").trim();
             case "Необходимый доход":
-                return requiredIncomeResult.getText().replaceAll("₽", "").trim();
+                return requiredIncomeResult.getText().replaceAll("[₽ ]", "").trim();
             case "Процентная ставка":
                 return creditRateResult.getText().replaceAll("[,]", ".").replaceAll("[%]", "");
         }

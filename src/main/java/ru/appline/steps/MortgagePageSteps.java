@@ -26,7 +26,7 @@ public class MortgagePageSteps extends BaseSteps {
         pagesManager.getMortgagePage().fillField(fieldName, value);
     }
 
-    @Step("снятие галочки {name}")
+    @Step("изменено состояние checkbox'а {name}")
     public MortgagePageSteps invertCheckBox(String name) {
         pagesManager.getMortgagePage().invertCheckBoxSelection(name);
         return this;

@@ -10,6 +10,7 @@ public class BaseSteps {
     PagesManager pagesManager = PagesManager.getPagesManager();
 
     public static void setUp() {
+
         initFramework();
 
         getBaseUrl();
